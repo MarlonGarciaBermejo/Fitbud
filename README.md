@@ -1,5 +1,5 @@
 ## Overview:
-The React Native Tabata Fitness App is designed to provide users with a comprehensive Tabata workout experience on their mobile devices. Utilizing the Tabata training method, users can engage in high-intensity interval training (HIIT) workouts to enhance their fitness levels, burn calories, and improve overall health. The app offers various workouts with different difficulty levels to cater to users of all fitness levels.
+This Tabata Fitness App is designed to provide users with a comprehensive Tabata workout experience on their mobile devices. Utilizing the Tabata training method, users can engage in high-intensity interval training (HIIT) workouts to enhance their fitness levels, burn calories, and improve overall health. The app offers various workouts with different difficulty levels to cater to users of all fitness levels.
 
 ## Key Features:
 Tabata Timer: The app includes a customizable Tabata timer that allows users to set work and rest intervals according to their preferences. Users can choose from pre-defined Tabata presets or create their own custom workouts.
