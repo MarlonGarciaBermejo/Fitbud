@@ -1,4 +1,4 @@
-### Poject Planning board:
+### Project Planning board:
 https://github.com/users/MarlonGarciaBermejo/projects/2
 
 ## Overview:
