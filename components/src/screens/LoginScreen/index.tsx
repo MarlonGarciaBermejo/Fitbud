@@ -74,7 +74,7 @@ function LoginScreen({ navigation }) {
 
       <TouchableOpacity onPress={() => navigation.navigate("Home")}>
         <View style={styles.loginSquareButtonStyle}>
-          <Text style={styles.textStyle}>Register</Text>
+          <Text style={styles.textStyle}>Login</Text>
         </View>
       </TouchableOpacity>
     </View>
