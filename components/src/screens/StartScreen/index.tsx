@@ -1,0 +1,24 @@
+import React from "react";
+import { View } from "react-native";
+import { Text } from "react-native";
+import { StyleSheet } from "react-native";
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingBottom: 100,
+  },
+});
+
+function StartScreen({ navigation }) {
+  return (
+    <View style={styles.container}>
+      <Text> StartScreen </Text>
+    </View>
+  );
+}
+
+export default StartScreen;

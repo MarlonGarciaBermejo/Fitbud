@@ -7,6 +7,7 @@ import { FitbudLogoIcon } from "../../icons/fitbudLogoIcon";
 import { WelcometoLogoIcon } from "../../icons/welcometoLogoIcon";
 import fitbudbg from "../../../../assets/images/fitbudbg.png";
 import { FIREBASE_AUTH } from "../../../../FireBaseConfig";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const styles = StyleSheet.create({
   container: {
@@ -44,10 +45,28 @@ const styles = StyleSheet.create({
 });
 
 function RegisterScreen({ navigation }) {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const auth = FIREBASE_AUTH;
+  async function confirmPasswordMatch() {
+    if (password === confirmPassword) {
+      return true;
+    } else {
+      alert("Passwords do not match");
+      return false;
+    }
+  }
+  async function signUp() {
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      alert("Successfully signed up");
+      return true;
+    } catch (error) {
+      alert("Failed to sign up: " + error.message);
+      return false;
+    }
+  }
   return (
     <View style={styles.container}>
       <Button title="Back" onPress={() => navigation.goBack()} />
@@ -59,7 +78,8 @@ function RegisterScreen({ navigation }) {
         <FitbudLogoIcon />
       </View>
       <TextInput
-        value={username}
+        value={email}
+        autoCapitalize="none"
         style={{
           width: 190,
           height: 47,
@@ -69,11 +89,12 @@ function RegisterScreen({ navigation }) {
           textAlign: "center",
         }}
         placeholder="Username"
-        onChangeText={(text) => setUsername(text)}
+        onChangeText={(text) => setEmail(text)}
       />
       <TextInput
         secureTextEntry={true}
         value={password}
+        autoCapitalize="none"
         style={{
           width: 190,
           height: 47,
@@ -88,6 +109,7 @@ function RegisterScreen({ navigation }) {
       <TextInput
         secureTextEntry={true}
         value={confirmPassword}
+        autoCapitalize="none"
         style={{
           width: 190,
           height: 47,
@@ -99,7 +121,15 @@ function RegisterScreen({ navigation }) {
         placeholder="Confirm Password"
         onChangeText={(text) => setConfirmPassword(text)}
       />
-      <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+      <TouchableOpacity
+        onPress={async () => {
+          const passwordMatch = await confirmPasswordMatch();
+          const success = await signUp();
+          if (success ?? passwordMatch) {
+            navigation.navigate("Home");
+          }
+        }}
+      >
         <View style={styles.loginSquareButtonStyle}>
           <Text style={styles.textStyle}>Register</Text>
         </View>

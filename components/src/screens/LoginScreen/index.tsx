@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, ImageBackground, TextInput, TouchableOpacity, View } from "react-native";
 import { Text } from "react-native";
 import { StyleSheet } from "react-native";
 import fitbudbg from "../../../../assets/images/fitbudbg.png";
 import { FitbudLogoIcon } from "../../icons/fitbudLogoIcon";
 import { WelcometoLogoIcon } from "../../icons/welcometoLogoIcon";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { FIREBASE_AUTH } from "../../../../FireBaseConfig";
 
 const styles = StyleSheet.create({
   container: {
@@ -44,11 +46,23 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     zIndex: 1,
-    backgroundColor: "white",
   },
 });
 
 function LoginScreen({ navigation }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const auth = FIREBASE_AUTH;
+  async function signIn() {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      alert("Successfully logged in");
+      return true;
+    } catch (error) {
+      alert("Failed to log in: " + error.message);
+      return false;
+    }
+  }
   return (
     <View style={styles.container}>
       <View style={styles.backButtonContainer}>
@@ -62,6 +76,8 @@ function LoginScreen({ navigation }) {
         <FitbudLogoIcon />
       </View>
       <TextInput
+        value={email}
+        autoCapitalize="none"
         style={{
           width: 190,
           height: 47,
@@ -70,9 +86,13 @@ function LoginScreen({ navigation }) {
           marginBottom: 15,
           textAlign: "center",
         }}
-        placeholder="Username"
+        placeholder="Email"
+        onChangeText={(text) => setEmail(text)}
       />
       <TextInput
+        value={password}
+        secureTextEntry={true}
+        autoCapitalize="none"
         style={{
           width: 190,
           height: 47,
@@ -82,9 +102,17 @@ function LoginScreen({ navigation }) {
           textAlign: "center",
         }}
         placeholder="Password"
+        onChangeText={(text) => setPassword(text)}
       />
 
-      <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+      <TouchableOpacity
+        onPress={async () => {
+          const success = await signIn();
+          if (success) {
+            navigation.navigate("Start");
+          }
+        }}
+      >
         <View style={styles.loginSquareButtonStyle}>
           <Text style={styles.textStyle}>Login</Text>
         </View>

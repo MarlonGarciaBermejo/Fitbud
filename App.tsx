@@ -9,6 +9,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import packageJson from "./package.json";
 import LoginScreen from "./components/src/screens/LoginScreen";
 import RegisterScreen from "./components/src/screens/RegisterScreen";
+import StartScreen from "./components/src/screens/StartScreen";
 
 const styles = StyleSheet.create({
   container: {
@@ -109,6 +110,14 @@ export default function App() {
         <Stack.Screen
           name="Register"
           component={RegisterScreen}
+          options={{
+            headerTransparent: true,
+            headerTintColor: "transparent",
+          }}
+        />
+        <Stack.Screen
+          name="Start"
+          component={StartScreen}
           options={{
             headerTransparent: true,
             headerTintColor: "transparent",
