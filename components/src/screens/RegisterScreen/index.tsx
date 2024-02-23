@@ -60,6 +60,7 @@ function RegisterScreen({ navigation }) {
           borderRadius: 13,
           backgroundColor: "white",
           marginBottom: 15,
+          textAlign: "center",
         }}
         placeholder="Username"
       />
@@ -70,6 +71,7 @@ function RegisterScreen({ navigation }) {
           borderRadius: 13,
           backgroundColor: "white",
           marginBottom: 15,
+          textAlign: "center",
         }}
         placeholder="Password"
       />
@@ -80,6 +82,7 @@ function RegisterScreen({ navigation }) {
           borderRadius: 13,
           backgroundColor: "white",
           marginBottom: 15,
+          textAlign: "center",
         }}
         placeholder="Confirm Password"
       />

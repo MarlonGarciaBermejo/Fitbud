@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    paddingBottom: 130,
+    paddingBottom: 100,
   },
   backgroundImageStyle: {
     ...StyleSheet.absoluteFillObject,
@@ -38,12 +38,22 @@ const styles = StyleSheet.create({
     fontSize: 15,
     marginTop: 14,
   },
+  backButtonContainer: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1,
+    backgroundColor: "white",
+  },
 });
 
 function LoginScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Button title="Back" onPress={() => navigation.goBack()} />
+      <View style={styles.backButtonContainer}>
+        <Button title="Back" onPress={() => navigation.goBack()} />
+      </View>
       <ImageBackground style={styles.backgroundImageStyle} source={fitbudbg} />
       <View>
         <WelcometoLogoIcon style={styles.welcomeToLogoStyle} />
@@ -58,6 +68,7 @@ function LoginScreen({ navigation }) {
           borderRadius: 13,
           backgroundColor: "white",
           marginBottom: 15,
+          textAlign: "center",
         }}
         placeholder="Username"
       />
@@ -68,6 +79,7 @@ function LoginScreen({ navigation }) {
           borderRadius: 13,
           backgroundColor: "white",
           marginBottom: 15,
+          textAlign: "center",
         }}
         placeholder="Password"
       />
