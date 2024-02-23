@@ -24,8 +24,8 @@ Personalized user profiles enable users to customize their workout preferences, 
 
 ## Technology Stack:
 
-### React 
-Native: The app is developed using React Native, a popular framework for building cross-platform mobile applications.
+### React Native: 
+The app is developed using React Native, a popular framework for building cross-platform mobile applications.
 ### Expo: 
 Expo is utilized as the platform for developing and deploying the React Native app, providing access to a variety of tools and services for streamlined development.
 ### Yarn: 
