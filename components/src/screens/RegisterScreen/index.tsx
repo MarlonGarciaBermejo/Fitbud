@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ImageBackground, TextInput, TouchableOpacity, View } from "react-native";
 import { Text } from "react-native";
 import { StyleSheet } from "react-native";
@@ -6,6 +6,7 @@ import { Button } from "react-native";
 import { FitbudLogoIcon } from "../../icons/fitbudLogoIcon";
 import { WelcometoLogoIcon } from "../../icons/welcometoLogoIcon";
 import fitbudbg from "../../../../assets/images/fitbudbg.png";
+import { FIREBASE_AUTH } from "../../../../FireBaseConfig";
 
 const styles = StyleSheet.create({
   container: {
@@ -43,6 +44,10 @@ const styles = StyleSheet.create({
 });
 
 function RegisterScreen({ navigation }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const auth = FIREBASE_AUTH;
   return (
     <View style={styles.container}>
       <Button title="Back" onPress={() => navigation.goBack()} />
@@ -54,6 +59,7 @@ function RegisterScreen({ navigation }) {
         <FitbudLogoIcon />
       </View>
       <TextInput
+        value={username}
         style={{
           width: 190,
           height: 47,
@@ -63,8 +69,11 @@ function RegisterScreen({ navigation }) {
           textAlign: "center",
         }}
         placeholder="Username"
+        onChangeText={(text) => setUsername(text)}
       />
       <TextInput
+        secureTextEntry={true}
+        value={password}
         style={{
           width: 190,
           height: 47,
@@ -74,8 +83,11 @@ function RegisterScreen({ navigation }) {
           textAlign: "center",
         }}
         placeholder="Password"
+        onChangeText={(text) => setPassword(text)}
       />
       <TextInput
+        secureTextEntry={true}
+        value={confirmPassword}
         style={{
           width: 190,
           height: 47,
@@ -85,6 +97,7 @@ function RegisterScreen({ navigation }) {
           textAlign: "center",
         }}
         placeholder="Confirm Password"
+        onChangeText={(text) => setConfirmPassword(text)}
       />
       <TouchableOpacity onPress={() => navigation.navigate("Home")}>
         <View style={styles.loginSquareButtonStyle}>
