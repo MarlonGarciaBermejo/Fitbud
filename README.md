@@ -1,6 +1,9 @@
 ### Project Planning board:
 https://github.com/users/MarlonGarciaBermejo/projects/2
 
+### Figma Design:
+https://www.figma.com/file/zkwMS53i4d966MXrPKPxVy/Untitled?type=design&node-id=3-10&mode=design&t=IWiPo6oD50JOGw9l-0
+
 ## Overview:
 This Tabata Fitness App is designed to provide users with a comprehensive Tabata workout experience on their mobile devices. Utilizing the Tabata training method, users can engage in high-intensity interval training (HIIT) workouts to enhance their fitness levels, burn calories, and improve overall health. The app offers various workouts with different difficulty levels to cater to users of all fitness levels.
 
