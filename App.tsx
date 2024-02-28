@@ -10,6 +10,9 @@ import packageJson from "./package.json";
 import LoginScreen from "./components/src/screens/LoginScreen";
 import RegisterScreen from "./components/src/screens/RegisterScreen";
 import StartScreen from "./components/src/screens/StartScreen";
+import UpperBodyDifficultyScreen from "./components/src/screens/UpperBodyDifficultyScreen";
+import LowerBodyDifficultyScreen from "./components/src/screens/LowerBodyDifficultyScreen";
+import CoreDifficultyScreen from "./components/src/screens/CoreDifficultyScreen";
 
 const styles = StyleSheet.create({
   container: {
@@ -118,6 +121,30 @@ export default function App() {
         <Stack.Screen
           name="Start"
           component={StartScreen}
+          options={{
+            headerTransparent: true,
+            headerTintColor: "transparent",
+          }}
+        />
+        <Stack.Screen
+          name="UpperBodyDifficulty"
+          component={UpperBodyDifficultyScreen}
+          options={{
+            headerTransparent: true,
+            headerTintColor: "transparent",
+          }}
+        />
+        <Stack.Screen
+          name="LowerBodyDifficulty"
+          component={LowerBodyDifficultyScreen}
+          options={{
+            headerTransparent: true,
+            headerTintColor: "transparent",
+          }}
+        />
+        <Stack.Screen
+          name="CoreDifficulty"
+          component={CoreDifficultyScreen}
           options={{
             headerTransparent: true,
             headerTintColor: "transparent",

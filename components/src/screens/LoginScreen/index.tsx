@@ -56,7 +56,6 @@ function LoginScreen({ navigation }) {
   async function signIn() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      alert("Successfully logged in");
       return true;
     } catch (error) {
       alert("Failed to log in: " + error.message);
