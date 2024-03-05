@@ -1,10 +1,13 @@
 import React from "react";
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import fitbudbg from "./assets/images/fitbudbg.png";
 import { ImageBackground } from "react-native";
 import { FitbudLogoIcon } from "./components/src/icons/fitbudLogoIcon";
 import { WelcometoLogoIcon } from "./components/src/icons/welcometoLogoIcon";
-import { NavigationContainer } from "@react-navigation/native";
+import { HomeIcon } from "./components/src/icons/homeIcon";
+import { ProfileIcon } from "./components/src/icons/profileIcon";
+import { LogoutIcon } from "./components/src/icons/logoutIcon";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import packageJson from "./package.json";
 import LoginScreen from "./components/src/screens/LoginScreen";
@@ -13,6 +16,14 @@ import StartScreen from "./components/src/screens/StartScreen";
 import UpperBodyDifficultyScreen from "./components/src/screens/UpperBodyDifficultyScreen";
 import LowerBodyDifficultyScreen from "./components/src/screens/LowerBodyDifficultyScreen";
 import CoreDifficultyScreen from "./components/src/screens/CoreDifficultyScreen";
+import { FIREBASE_AUTH } from "./FireBaseConfig";
+import ProfileScreen from "./components/src/screens/ProfileScreen";
+import UpperBodyEasyScreen from "./components/src/screens/UpperBodyEasyScreen";
+import UpperBodyHardScreen from "./components/src/screens/UpperBodyHardScreen";
+import LowerBodyEasyScreen from "./components/src/screens/LowerBodyEasyScreen";
+import LowerBodyHardScreen from "./components/src/screens/LowerBodyHardScreen";
+import CoreEasyScreen from "./components/src/screens/CoreEasyScreen";
+import CoreHardScreen from "./components/src/screens/CoreHardScreen";
 
 const styles = StyleSheet.create({
   container: {
@@ -71,13 +82,11 @@ function HomeScreen({ navigation }) {
       <View style={styles.fitbudLogoStyle}>
         <FitbudLogoIcon />
       </View>
-      <View>
-        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-          <View style={styles.loginSquareButtonStyle}>
-            <Text style={styles.textStyle}>Login</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+        <View style={styles.loginSquareButtonStyle}>
+          <Text style={styles.textStyle}>Login</Text>
+        </View>
+      </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate("Register")}>
         <View style={styles.loginSquareButtonStyle}>
           <Text style={styles.textStyle}>Register</Text>
@@ -119,35 +128,233 @@ export default function App() {
           }}
         />
         <Stack.Screen
+          name="UpperBodyEasy"
+          component={UpperBodyEasyScreen}
+          options={{
+            headerStyle: {
+              backgroundColor: "#A20000",
+            },
+            headerTintColor: "white",
+            headerTitleStyle: {
+              fontWeight: "600",
+            },
+            headerBackTitleVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="UpperBodyHard"
+          component={UpperBodyHardScreen}
+          options={{
+            headerStyle: {
+              backgroundColor: "#A20000",
+            },
+            headerTintColor: "white",
+            headerTitleStyle: {
+              fontWeight: "600",
+            },
+            headerBackTitleVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="LowerBodyEasy"
+          component={LowerBodyEasyScreen}
+          options={{
+            headerStyle: {
+              backgroundColor: "#006ACD",
+            },
+            headerTintColor: "white",
+            headerTitleStyle: {
+              fontWeight: "600",
+            },
+            headerBackTitleVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="LowerBodyHard"
+          component={LowerBodyHardScreen}
+          options={{
+            headerStyle: {
+              backgroundColor: "#006ACD",
+            },
+            headerTintColor: "white",
+            headerTitleStyle: {
+              fontWeight: "600",
+            },
+            headerBackTitleVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="CoreEasy"
+          component={CoreEasyScreen}
+          options={{
+            headerStyle: {
+              backgroundColor: "#CA6D00",
+            },
+            headerTintColor: "white",
+            headerTitleStyle: {
+              fontWeight: "600",
+            },
+            headerBackTitleVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="CoreHard"
+          component={CoreHardScreen}
+          options={{
+            headerStyle: {
+              backgroundColor: "#CA6D00",
+            },
+            headerTintColor: "white",
+            headerTitleStyle: {
+              fontWeight: "600",
+            },
+            headerBackTitleVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={ProfileScreen}
+          options={({ navigation }) => ({
+            headerStyle: {
+              backgroundColor: "#051E35",
+            },
+            headerTintColor: "black",
+            headerTitleStyle: {
+              fontWeight: "600",
+            },
+            headerBackTitleVisible: false,
+            headerLeft: () => (
+              <View style={{ flexDirection: "row", marginLeft: 10 }}>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate("Start");
+                  }}
+                >
+                  <HomeIcon style={{ marginLeft: 50 }} />
+                </TouchableOpacity>
+              </View>
+            ),
+            headerTitle: () => (
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate("Profile");
+                }}
+              >
+                <ProfileIcon style={{ marginBottom: 5 }} />
+              </TouchableOpacity>
+            ),
+            headerRight: () => (
+              <TouchableOpacity
+                onPress={() => {
+                  FIREBASE_AUTH.signOut()
+                    .then(() => {
+                      navigation.reset({
+                        index: 0,
+                        routes: [{ name: "Login" }],
+                      });
+                    })
+                    .catch((error) => {
+                      console.error(error);
+                    });
+                }}
+              >
+                <LogoutIcon style={{ marginRight: 70 }} />
+              </TouchableOpacity>
+            ),
+          })}
+        />
+        <Stack.Screen
           name="Start"
           component={StartScreen}
-          options={{
-            headerTransparent: true,
-            headerTintColor: "transparent",
-          }}
+          options={({ navigation }) => ({
+            headerStyle: {
+              backgroundColor: "#051E35",
+            },
+            headerTintColor: "black",
+            headerTitleStyle: {
+              fontWeight: "600",
+            },
+            headerBackTitleVisible: false,
+            headerLeft: () => (
+              <View style={{ flexDirection: "row", marginLeft: 10 }}>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate("Start");
+                  }}
+                >
+                  <HomeIcon style={{ marginLeft: 50 }} />
+                </TouchableOpacity>
+              </View>
+            ),
+            headerTitle: () => (
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate("Profile");
+                }}
+              >
+                <ProfileIcon style={{ marginBottom: 5 }} />
+              </TouchableOpacity>
+            ),
+            headerRight: () => (
+              <TouchableOpacity
+                onPress={() => {
+                  FIREBASE_AUTH.signOut()
+                    .then(() => {
+                      navigation.reset({
+                        index: 0,
+                        routes: [{ name: "Login" }],
+                      });
+                    })
+                    .catch((error) => {
+                      console.error(error);
+                    });
+                }}
+              >
+                <LogoutIcon style={{ marginRight: 70 }} />
+              </TouchableOpacity>
+            ),
+          })}
         />
         <Stack.Screen
           name="UpperBodyDifficulty"
           component={UpperBodyDifficultyScreen}
           options={{
-            headerTransparent: true,
-            headerTintColor: "transparent",
+            headerStyle: {
+              backgroundColor: "#A20000",
+            },
+            headerTintColor: "white",
+            headerTitleStyle: {
+              fontWeight: "600",
+            },
+            headerBackTitleVisible: false,
           }}
         />
         <Stack.Screen
           name="LowerBodyDifficulty"
           component={LowerBodyDifficultyScreen}
           options={{
-            headerTransparent: true,
-            headerTintColor: "transparent",
+            headerStyle: {
+              backgroundColor: "#006ACD",
+            },
+            headerTintColor: "white",
+            headerTitleStyle: {
+              fontWeight: "600",
+            },
+            headerBackTitleVisible: false,
           }}
         />
         <Stack.Screen
           name="CoreDifficulty"
           component={CoreDifficultyScreen}
           options={{
-            headerTransparent: true,
-            headerTintColor: "transparent",
+            headerStyle: {
+              backgroundColor: "#CA6D00",
+            },
+            headerTintColor: "white",
+            headerTitleStyle: {
+              fontWeight: "600",
+            },
+            headerBackTitleVisible: false,
           }}
         />
       </Stack.Navigator>

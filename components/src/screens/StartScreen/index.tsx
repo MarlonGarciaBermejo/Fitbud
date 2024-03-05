@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, ImageBackground, TouchableOpacity, Touchable } from "react-native";
+import { View, ImageBackground, TouchableOpacity } from "react-native";
 import { Text } from "react-native";
 import { StyleSheet } from "react-native";
 import headerImage from "../../../../assets/images/Headerimg.png";
@@ -13,7 +13,6 @@ import { LowerBodyIcon } from "../../icons/lowerBodyIcon";
 import { UpperBodyIcon } from "../../icons/upperBodyIcon";
 import { CoreIcon } from "../../icons/coreIcon";
 import { FIREBASE_AUTH } from "../../../../FireBaseConfig";
-import { BackIcon } from "../../icons/backIcon";
 
 const styles = StyleSheet.create({
   container: {
@@ -146,9 +145,6 @@ function StartScreen({ navigation }) {
   }, []);
   return (
     <ScrollView>
-      <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-        <BackIcon style={styles.backIconStyle} />
-      </TouchableOpacity>
       <View style={styles.welcomeUserStyle}>
         <Text style={{ fontWeight: "500", fontSize: 15, color: "grey" }}>Welcome back,</Text>
         <Text style={{ fontWeight: "600", fontSize: 18 }}>{email}</Text>

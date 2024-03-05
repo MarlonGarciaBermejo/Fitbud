@@ -11,10 +11,10 @@ export const BackIcon: React.FC<BackIconProps> = ({ style }) => {
     <Svg width="20" height="25" viewBox="0 0 10 19" fill="none" style={style}>
       <Path
         d="M9 1.54883L1 9.54883L9 17.5488"
-        stroke="black"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        stroke="white"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </Svg>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ImageBackground, TouchableOpacity } from "react-native";
+import { View, ImageBackground, TouchableOpacity, Button } from "react-native";
 import { Text } from "react-native";
 import { StyleSheet } from "react-native";
 import redBG from "../../../../assets/images/red.png";
@@ -18,9 +18,25 @@ const styles = StyleSheet.create({
   bgStyle: {
     ...StyleSheet.absoluteFillObject,
   },
-  backIconStyle: {
-    marginTop: 80,
-    marginRight: 360,
+  textStyle: {
+    textAlign: "center",
+    marginTop: 250,
+    color: "white",
+    fontSize: 24,
+  },
+  textStyle1: {
+    textAlign: "center",
+    marginTop: 40,
+    color: "white",
+    fontSize: 24,
+  },
+  logoBGStyle: {
+    backgroundColor: "yellow",
+    borderRadius: 20,
+    width: 140,
+    height: 50,
+    marginTop: 20,
+    padding: 5,
   },
 });
 
@@ -28,10 +44,15 @@ function UpperBodyDifficultyScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <ImageBackground style={styles.bgStyle} source={redBG} />
-      <TouchableOpacity onPress={() => navigation.navigate("Start")}>
-        <BackIcon style={styles.backIconStyle} />
-      </TouchableOpacity>
-      <Text style={{ color: "White" }}>Welcome</Text>
+
+      <Text style={styles.textStyle}>Easy</Text>
+      <View style={styles.logoBGStyle}>
+        <Button title="Start" color="black" onPress={() => navigation.navigate("UpperBodyEasy")} />
+      </View>
+      <Text style={styles.textStyle1}>Hard</Text>
+      <View style={styles.logoBGStyle}>
+        <Button title="Start" color="black" onPress={() => navigation.navigate("UpperBodyHard")} />
+      </View>
     </View>
   );
 }

@@ -8,20 +8,20 @@ interface LogoutIconProps {
 
 export const LogoutIcon: React.FC<LogoutIconProps> = ({ style }) => {
   return (
-    <Svg width="24" height="30" viewBox="0 0 24 30" fill="none" style={style}>
+    <Svg width="25" height="31" viewBox="0 0 30 36" fill="none" style={style}>
       <Path
-        d="M11.6433 14.6843H22.2867M22.2867 14.6843L17.7252 19.2457M22.2867 14.6843L17.7252 10.1229"
+        d="M12.6433 15.6844H23.2867M23.2867 15.6844L18.7252 20.2458M23.2867 15.6844L18.7252 11.1229"
         stroke="white"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <Path
-        d="M22.2867 5.56144V4.04096C22.2867 2.36148 20.9253 1 19.2457 1H4.04096C2.36148 1 1 2.36148 1 4.04096V25.3277C1 27.0072 2.36148 28.3686 4.04096 28.3686H19.2457C20.9253 28.3686 22.2867 27.0072 22.2867 25.3277V23.8072"
+        d="M23.2867 6.56144V5.04096C23.2867 3.36148 21.9253 2 20.2457 2H5.04096C3.36148 2 2 3.36148 2 5.04096V26.3277C2 28.0072 3.36148 29.3686 5.04096 29.3686H20.2457C21.9253 29.3686 23.2867 28.0072 23.2867 26.3277V24.8072"
         stroke="white"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </Svg>
   );
