@@ -64,9 +64,6 @@ function LoginScreen({ navigation }) {
   }
   return (
     <View style={styles.container}>
-      <View style={styles.backButtonContainer}>
-        <Button title="Back" onPress={() => navigation.goBack()} />
-      </View>
       <ImageBackground style={styles.backgroundImageStyle} source={fitbudbg} />
       <View>
         <WelcometoLogoIcon style={styles.welcomeToLogoStyle} />
