@@ -82,19 +82,19 @@ const UpperBodyEasyScreen = () => {
       setShowCompletionScreen(true);
     } else {
       setCurrentExerciseIndex((prevIndex) => prevIndex + 1);
-      setResetTimer(true); // Set resetTimer to true to reset the timer
+      setResetTimer(true);
     }
   };
 
   const goToPreviousExercise = () => {
     setCurrentExerciseIndex((prevIndex) => (prevIndex === 0 ? exercises.length - 1 : prevIndex - 1));
-    setResetTimer(true); // Set resetTimer to true to reset the timer
+    setResetTimer(true);
   };
 
   useEffect(() => {
     if (resetTimer) {
       setTimeout(() => {
-        setResetTimer(false); // Reset resetTimer back to false after a short delay
+        setResetTimer(false);
       }, 100);
     }
   }, [resetTimer]);
@@ -118,7 +118,7 @@ const UpperBodyEasyScreen = () => {
                 color="black"
                 onPress={() => {
                   goToPreviousExercise();
-                  setResetTimer(true); // Reset the timer when navigating to previous exercise
+                  setResetTimer(true);
                 }}
               />
             </View>
@@ -128,7 +128,7 @@ const UpperBodyEasyScreen = () => {
                 color="black"
                 onPress={() => {
                   goToNextExercise();
-                  setResetTimer(true); // Reset the timer when navigating to next exercise
+                  setResetTimer(true);
                 }}
               />
             </View>
