@@ -24,6 +24,7 @@ import LowerBodyEasyScreen from "./components/src/screens/LowerBodyEasyScreen";
 import LowerBodyHardScreen from "./components/src/screens/LowerBodyHardScreen";
 import CoreEasyScreen from "./components/src/screens/CoreEasyScreen";
 import CoreHardScreen from "./components/src/screens/CoreHardScreen";
+import CompletionScreen from "./components/src/screens/CompletionScreen";
 
 const styles = StyleSheet.create({
   container: {
@@ -106,6 +107,15 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
+          options={{
+            headerTransparent: true,
+            headerTintColor: "transparent",
+          }}
+        />
+
+        <Stack.Screen
+          name="Completion"
+          component={CompletionScreen}
           options={{
             headerTransparent: true,
             headerTintColor: "transparent",

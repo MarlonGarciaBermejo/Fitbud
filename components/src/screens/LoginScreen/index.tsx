@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, ImageBackground, TextInput, TouchableOpacity, View } from "react-native";
+import { ImageBackground, TextInput, TouchableOpacity, View } from "react-native";
 import { Text } from "react-native";
 import { StyleSheet } from "react-native";
 import fitbudbg from "../../../../assets/images/fitbudbg.png";

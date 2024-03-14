@@ -18,12 +18,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#EFEFEF",
-
     alignItems: "center",
   },
   headerImageStyle: {
-    width: 390,
-    height: 200,
+    aspectRatio: 390 / 200,
   },
   welcomeStyle: {
     marginLeft: 20,
@@ -50,7 +48,7 @@ const styles = StyleSheet.create({
   },
   viewStyle2: {
     backgroundColor: "white",
-    width: 390,
+    width: 380,
     height: 140,
     marginTop: 10,
     borderRadius: 15,
@@ -124,10 +122,11 @@ const styles = StyleSheet.create({
   },
   viewStyle3: {
     backgroundColor: "white",
-    width: 390,
+    width: 380,
     height: 300,
     marginTop: 10,
     borderRadius: 15,
+    padding: 10,
   },
   backIconStyle: {
     marginTop: 80,
@@ -151,7 +150,7 @@ function StartScreen({ navigation }) {
         <Text style={{ fontWeight: "600", fontSize: 18 }}>{email}</Text>
       </View>
       <View style={styles.container}>
-        <ImageBackground source={headerImage} style={styles.headerImageStyle}>
+        <ImageBackground source={headerImage} style={styles.headerImageStyle} resizeMode="contain">
           <View style={styles.welcomeStyle}>
             <WelcomeSmallIcon />
           </View>

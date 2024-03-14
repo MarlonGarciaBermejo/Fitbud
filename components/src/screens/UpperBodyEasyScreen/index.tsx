@@ -67,14 +67,15 @@ const Timer = ({ duration, onTimeUp, resetTimer }) => {
   return <Text style={[styles.textStyle1, timeLeft <= 3 && styles.lastSeconds]}>{timeLeft} seconds left</Text>;
 };
 
-const UpperBodyEasyScreen = () => {
+const UpperBodyEasyScreen = ({ navigation }) => {
   const exercises = UpperBodyEasyExercises;
   const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
   const [resetTimer, setResetTimer] = useState(false);
   const [showCompletionScreen, setShowCompletionScreen] = useState(false);
+  const [showGetReady, setShowGetReady] = useState(true); // New state variable
 
   const handleFinish = () => {
-    setShowCompletionScreen(false);
+    navigation.navigate("Start");
   };
 
   const goToNextExercise = () => {
@@ -99,18 +100,36 @@ const UpperBodyEasyScreen = () => {
     }
   }, [resetTimer]);
 
+  useEffect(() => {
+    if (showGetReady) {
+      let countdown = 5;
+      const interval = setInterval(() => {
+        countdown--;
+        if (countdown === 0) {
+          setShowGetReady(false);
+          clearInterval(interval);
+        }
+      }, 1000);
+    }
+  }, [showGetReady]);
+
   return (
     <View style={styles.container}>
       <ImageBackground style={styles.backgroundImageStyle} source={redBG}>
-        {showCompletionScreen ? (
+        {showGetReady ? (
+          <View>
+            <Text style={styles.textStyle}>Get ready</Text>
+            <Timer duration={5} onTimeUp={() => setShowGetReady(false)} resetTimer={resetTimer} />
+          </View>
+        ) : showCompletionScreen ? (
           <CompletionScreen onFinish={handleFinish} />
         ) : (
           <View>
             <Text style={styles.textStyle}>{exercises[currentExerciseIndex]}</Text>
-            <Timer duration={30} onTimeUp={goToNextExercise} resetTimer={resetTimer} />
+            <Timer duration={25} onTimeUp={goToNextExercise} resetTimer={resetTimer} />
           </View>
         )}
-        {!showCompletionScreen && (
+        {!showCompletionScreen && !showGetReady && (
           <View style={{ flexDirection: "row", justifyContent: "space-between", padding: 30 }}>
             <View style={styles.logoBGStyle}>
               <Button
