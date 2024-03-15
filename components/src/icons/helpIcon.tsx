@@ -8,7 +8,7 @@ interface HelpIconProps {
 
 export const HelpIcon: React.FC<HelpIconProps> = ({ style }) => {
   return (
-    <Svg width="29" height="29" viewBox="0 0 29 29" fill="none" style={style}>
+    <Svg width="34" height="34" viewBox="0 0 29 29" fill="none" style={style}>
       <Path
         d="M14.5 28C21.9558 28 28 21.9558 28 14.5C28 7.04415 21.9558 1 14.5 1C7.04415 1 1 7.04415 1 14.5C1 21.9558 7.04415 28 14.5 28Z"
         stroke="white"

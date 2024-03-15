@@ -17,6 +17,8 @@ import Swiper from "react-native-swiper";
 import whiteImage from "../../../../assets/images/whiteImage.png";
 import { TextIcon } from "../../icons/textIcon";
 import { TrainingIcon } from "../../icons/trainingIcon";
+import { HelpIcon } from "../../icons/helpIcon";
+import { FeedbackIcon } from "../../icons/feedbackIcon";
 
 const styles = StyleSheet.create({
   container: {
@@ -130,12 +132,16 @@ const styles = StyleSheet.create({
     backgroundColor: "#2F2F2F",
     width: 380,
     height: 300,
-    marginTop: 10,
+    marginTop: 20,
     borderRadius: 15,
     padding: 10,
   },
   backIconStyle: {
     marginTop: 80,
+    marginLeft: 20,
+  },
+  feedbackStyle: {
+    marginTop: 20,
     marginLeft: 20,
   },
   swiperStyle: {
@@ -187,6 +193,27 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     fontSize: 16,
     marginTop: 20,
+  },
+  helpiconStyle: {
+    marginTop: 19,
+    marginLeft: 40,
+  },
+  textStyle3: {
+    color: "white",
+    textAlign: "center",
+    fontWeight: "500",
+    fontSize: 16,
+    marginTop: 3.5,
+    marginLeft: 40,
+  },
+  textStyle4: {
+    color: "white",
+    textAlign: "center",
+    fontWeight: "500",
+    fontSize: 16,
+    marginTop: 5,
+    marginLeft: 30,
+    marginRight: 10,
   },
 });
 
@@ -267,7 +294,22 @@ function StartScreen({ navigation }) {
               "with different difficulty levels to cater to users of all fitness levels."}
           </Text>
         </View>
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          <View style={{ alignItems: "center" }}>
+            <TouchableOpacity onPress={() => navigation.navigate("Help")}>
+              <HelpIcon style={styles.helpiconStyle} />
+            </TouchableOpacity>
+            <Text style={styles.textStyle3}>Help</Text>
+          </View>
+          <View style={{ alignItems: "center" }}>
+            <TouchableOpacity onPress={() => navigation.navigate("Feedback")}>
+              <FeedbackIcon style={styles.feedbackStyle} />
+            </TouchableOpacity>
+            <Text style={styles.textStyle4}>Feedback</Text>
+          </View>
+        </View>
       </View>
+      <View style={{ height: 60 }}></View>
     </ScrollView>
   );
 }

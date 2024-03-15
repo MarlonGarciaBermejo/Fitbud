@@ -8,7 +8,7 @@ interface FeedbackIconProps {
 
 export const FeedbackIcon: React.FC<FeedbackIconProps> = ({ style }) => {
   return (
-    <Svg width="36" height="26" viewBox="0 0 36 26" fill="none" style={style}>
+    <Svg width="42" height="32" viewBox="0 0 36 26" fill="none" style={style}>
       <Path
         d="M9.49976 7.80005L17.9998 13.75L26.4998 7.80005"
         stroke="white"
