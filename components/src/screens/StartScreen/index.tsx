@@ -64,19 +64,19 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     marginTop: 20,
-    marginLeft: 35,
+    marginLeft: 25,
   },
   squareIconRedStyle: {
     width: 100,
     height: 100,
     marginTop: -100,
-    marginLeft: 150,
+    marginLeft: 142,
   },
   squareIconYellowStyle: {
     width: 100,
     height: 100,
     marginTop: -100,
-    marginLeft: 265,
+    marginLeft: 259,
   },
   lowerBodyIconStyle: {
     width: 100,
