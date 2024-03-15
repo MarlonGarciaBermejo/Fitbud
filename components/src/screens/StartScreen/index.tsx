@@ -14,6 +14,9 @@ import { UpperBodyIcon } from "../../icons/upperBodyIcon";
 import { CoreIcon } from "../../icons/coreIcon";
 import { FIREBASE_AUTH } from "../../../../FireBaseConfig";
 import Swiper from "react-native-swiper";
+import whiteImage from "../../../../assets/images/whiteImage.png";
+import { TextIcon } from "../../icons/textIcon";
+import { TrainingIcon } from "../../icons/trainingIcon";
 
 const styles = StyleSheet.create({
   container: {
@@ -26,7 +29,7 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   welcomeStyle: {
-    marginLeft: 20,
+    marginLeft: 25,
     marginBottom: -25,
   },
   fitbudStyle: {
@@ -136,7 +139,54 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   swiperStyle: {
-    height: "100%",
+    height: 195,
+  },
+  chooseStyle1: {
+    color: "white",
+    textAlign: "center",
+    fontWeight: "500",
+    fontSize: 24,
+    marginTop: 60,
+    marginLeft: 10,
+  },
+  categoryStyle1: {
+    color: "#0085FF",
+    textAlign: "center",
+    fontWeight: "700",
+    fontSize: 35,
+    marginRight: 20,
+  },
+  chooseStyle2: {
+    color: "white",
+    textAlign: "center",
+    fontWeight: "500",
+    fontSize: 24,
+    marginTop: 20,
+    marginLeft: 100,
+  },
+  categoryStyle2: {
+    color: "white",
+    textAlign: "center",
+    fontWeight: "700",
+    fontSize: 26,
+    marginRight: 12,
+  },
+  textIconStyle: {
+    marginTop: 60,
+    marginLeft: 40,
+  },
+  trainingStyle: {
+    bottom: 50,
+    marginLeft: 20,
+    width: 300,
+    height: 200,
+  },
+  textStyle2: {
+    color: "black",
+    textAlign: "center",
+    fontWeight: "500",
+    fontSize: 16,
+    marginTop: 20,
   },
 });
 
@@ -174,26 +224,15 @@ function StartScreen({ navigation }) {
             <Text style={styles.chooseStyle}>Choose your workout</Text>
             <Text style={styles.categoryStyle}>Category</Text>
           </ImageBackground>
-          <ImageBackground source={headerImage} style={styles.headerImageStyle} resizeMode="contain">
-            <View style={styles.welcomeStyle}>
-              <WelcomeSmallIcon />
-            </View>
-            <View style={styles.fitbudStyle}>
-              <FitBudSmallIcon />
-            </View>
-            <Text style={styles.chooseStyle}>Choose your workout</Text>
-            <Text style={styles.categoryStyle}>Category</Text>
+          <ImageBackground source={whiteImage} style={styles.headerImageStyle} resizeMode="contain">
+            <View style={styles.welcomeStyle}></View>
+            <View style={styles.fitbudStyle}></View>
+            <TextIcon style={styles.textIconStyle} />
+            <Text style={styles.categoryStyle1}>Best</Text>
           </ImageBackground>
-          <ImageBackground source={headerImage} style={styles.headerImageStyle} resizeMode="contain">
-            <View style={styles.welcomeStyle}>
-              <WelcomeSmallIcon />
-            </View>
-            <View style={styles.fitbudStyle}>
-              <FitBudSmallIcon />
-            </View>
-            <Text style={styles.chooseStyle}>Choose your workout</Text>
-            <Text style={styles.categoryStyle}>Category</Text>
-          </ImageBackground>
+          <View>
+            <TrainingIcon style={styles.trainingStyle} />
+          </View>
         </Swiper>
         <Text style={styles.categoryTextStyle}>Categories</Text>
         <View style={styles.viewStyle2}>
