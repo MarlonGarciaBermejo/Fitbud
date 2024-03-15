@@ -17,7 +17,7 @@ import { FIREBASE_AUTH } from "../../../../FireBaseConfig";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#EFEFEF",
+    backgroundColor: "#202020",
     alignItems: "center",
   },
   headerImageStyle: {
@@ -47,14 +47,14 @@ const styles = StyleSheet.create({
     marginRight: 12,
   },
   viewStyle2: {
-    backgroundColor: "white",
+    backgroundColor: "#2F2F2F",
     width: 380,
     height: 140,
     marginTop: 10,
     borderRadius: 15,
   },
   categoryTextStyle: {
-    color: "black",
+    color: "white",
     textAlign: "center",
     fontWeight: "400",
     fontSize: 18,
@@ -93,9 +93,9 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   bodyTextStyle: {
-    color: "black",
+    color: "white",
     textAlign: "center",
-    fontWeight: "400",
+    fontWeight: "500",
     fontSize: 17,
     paddingTop: 20,
     marginLeft: 130,
@@ -103,14 +103,14 @@ const styles = StyleSheet.create({
   bodyTextStyle1: {
     color: "#0085FF",
     textAlign: "center",
-    fontWeight: "400",
+    fontWeight: "500",
     fontSize: 18,
-    paddingTop: 20,
+    paddingTop: 19,
   },
   textStyle: {
-    color: "black",
+    color: "white",
     textAlign: "center",
-    fontWeight: "400",
+    fontWeight: "500",
     fontSize: 16,
     paddingTop: 10,
     padding: 20,
@@ -119,9 +119,10 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginLeft: 10,
     padding: 15,
+    backgroundColor: "#202020",
   },
   viewStyle3: {
-    backgroundColor: "white",
+    backgroundColor: "#2F2F2F",
     width: 380,
     height: 300,
     marginTop: 10,
@@ -144,10 +145,10 @@ function StartScreen({ navigation }) {
     }
   }, []);
   return (
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: "#202020" }}>
       <View style={styles.welcomeUserStyle}>
         <Text style={{ fontWeight: "500", fontSize: 15, color: "grey" }}>Welcome back,</Text>
-        <Text style={{ fontWeight: "600", fontSize: 18 }}>{email}</Text>
+        <Text style={{ fontWeight: "600", fontSize: 18, color: "white" }}>{email}</Text>
       </View>
       <View style={styles.container}>
         <ImageBackground source={headerImage} style={styles.headerImageStyle} resizeMode="contain">

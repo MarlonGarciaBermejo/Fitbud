@@ -278,7 +278,7 @@ export default function App() {
           component={StartScreen}
           options={({ navigation }) => ({
             headerStyle: {
-              backgroundColor: "#051E35",
+              backgroundColor: "#F2F2F2",
             },
             headerTintColor: "black",
             headerTitleStyle: {
