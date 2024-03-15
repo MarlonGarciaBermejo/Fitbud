@@ -13,6 +13,7 @@ import { LowerBodyIcon } from "../../icons/lowerBodyIcon";
 import { UpperBodyIcon } from "../../icons/upperBodyIcon";
 import { CoreIcon } from "../../icons/coreIcon";
 import { FIREBASE_AUTH } from "../../../../FireBaseConfig";
+import Swiper from "react-native-swiper";
 
 const styles = StyleSheet.create({
   container: {
@@ -21,7 +22,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   headerImageStyle: {
-    aspectRatio: 390 / 200,
+    width: "100%",
+    height: "100%",
   },
   welcomeStyle: {
     marginLeft: 20,
@@ -133,6 +135,9 @@ const styles = StyleSheet.create({
     marginTop: 80,
     marginLeft: 20,
   },
+  swiperStyle: {
+    height: "100%",
+  },
 });
 
 function StartScreen({ navigation }) {
@@ -151,16 +156,45 @@ function StartScreen({ navigation }) {
         <Text style={{ fontWeight: "600", fontSize: 18, color: "white" }}>{email}</Text>
       </View>
       <View style={styles.container}>
-        <ImageBackground source={headerImage} style={styles.headerImageStyle} resizeMode="contain">
-          <View style={styles.welcomeStyle}>
-            <WelcomeSmallIcon />
-          </View>
-          <View style={styles.fitbudStyle}>
-            <FitBudSmallIcon />
-          </View>
-          <Text style={styles.chooseStyle}>Choose your workout</Text>
-          <Text style={styles.categoryStyle}>Category</Text>
-        </ImageBackground>
+        <Swiper
+          style={styles.swiperStyle}
+          autoplay={true}
+          autoplayTimeout={5}
+          showsPagination={true}
+          dotStyle={{ backgroundColor: "rgba(0,0,0,.2)", width: 8, height: 8, top: 20 }}
+          activeDotStyle={{ backgroundColor: "white", width: 8, height: 8, top: 20 }}
+        >
+          <ImageBackground source={headerImage} style={styles.headerImageStyle} resizeMode="contain">
+            <View style={styles.welcomeStyle}>
+              <WelcomeSmallIcon />
+            </View>
+            <View style={styles.fitbudStyle}>
+              <FitBudSmallIcon />
+            </View>
+            <Text style={styles.chooseStyle}>Choose your workout</Text>
+            <Text style={styles.categoryStyle}>Category</Text>
+          </ImageBackground>
+          <ImageBackground source={headerImage} style={styles.headerImageStyle} resizeMode="contain">
+            <View style={styles.welcomeStyle}>
+              <WelcomeSmallIcon />
+            </View>
+            <View style={styles.fitbudStyle}>
+              <FitBudSmallIcon />
+            </View>
+            <Text style={styles.chooseStyle}>Choose your workout</Text>
+            <Text style={styles.categoryStyle}>Category</Text>
+          </ImageBackground>
+          <ImageBackground source={headerImage} style={styles.headerImageStyle} resizeMode="contain">
+            <View style={styles.welcomeStyle}>
+              <WelcomeSmallIcon />
+            </View>
+            <View style={styles.fitbudStyle}>
+              <FitBudSmallIcon />
+            </View>
+            <Text style={styles.chooseStyle}>Choose your workout</Text>
+            <Text style={styles.categoryStyle}>Category</Text>
+          </ImageBackground>
+        </Swiper>
         <Text style={styles.categoryTextStyle}>Categories</Text>
         <View style={styles.viewStyle2}>
           <TouchableOpacity onPress={() => navigation.navigate("LowerBodyDifficulty")}>
