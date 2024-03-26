@@ -67,12 +67,12 @@ const Timer = ({ duration, onTimeUp, resetTimer }) => {
   return <Text style={[styles.textStyle1, timeLeft <= 3 && styles.lastSeconds]}>{timeLeft} seconds left</Text>;
 };
 
-const UpperBodyEasyScreen = ({ navigation }) => {
+const UpperBodyEasyScreen = ({ navigation, setUpperBodyEasyCount }) => {
   const exercises = UpperBodyEasyExercises;
   const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
   const [resetTimer, setResetTimer] = useState(false);
   const [showCompletionScreen, setShowCompletionScreen] = useState(false);
-  const [showGetReady, setShowGetReady] = useState(true); // New state variable
+  const [showGetReady, setShowGetReady] = useState(true);
 
   const handleFinish = () => {
     navigation.navigate("Start");
@@ -81,6 +81,7 @@ const UpperBodyEasyScreen = ({ navigation }) => {
   const goToNextExercise = () => {
     if (currentExerciseIndex === exercises.length - 1) {
       setShowCompletionScreen(true);
+      setUpperBodyEasyCount((prevCount) => prevCount + 1);
     } else {
       setCurrentExerciseIndex((prevIndex) => prevIndex + 1);
       setResetTimer(true);

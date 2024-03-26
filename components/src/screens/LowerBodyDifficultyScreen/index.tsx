@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ImageBackground, TouchableOpacity, Button } from "react-native";
+import { View, ImageBackground, Button } from "react-native";
 import { Text } from "react-native";
 import { StyleSheet } from "react-native";
 import blueBG from "../../../../assets/images/blue.png";

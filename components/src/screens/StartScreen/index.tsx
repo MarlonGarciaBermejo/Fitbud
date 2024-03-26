@@ -296,12 +296,6 @@ function StartScreen({ navigation }) {
         </View>
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
           <View style={{ alignItems: "center" }}>
-            <TouchableOpacity onPress={() => navigation.navigate("Help")}>
-              <HelpIcon style={styles.helpiconStyle} />
-            </TouchableOpacity>
-            <Text style={styles.textStyle3}>Help</Text>
-          </View>
-          <View style={{ alignItems: "center" }}>
             <TouchableOpacity onPress={() => navigation.navigate("Feedback")}>
               <FeedbackIcon style={styles.feedbackStyle} />
             </TouchableOpacity>

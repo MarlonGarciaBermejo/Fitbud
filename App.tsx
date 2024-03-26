@@ -25,6 +25,7 @@ import LowerBodyHardScreen from "./components/src/screens/LowerBodyHardScreen";
 import CoreEasyScreen from "./components/src/screens/CoreEasyScreen";
 import CoreHardScreen from "./components/src/screens/CoreHardScreen";
 import CompletionScreen from "./components/src/screens/CompletionScreen";
+import FeedbackScreen from "./components/src/screens/FeedbackScreen";
 
 const styles = StyleSheet.create({
   container: {
@@ -361,6 +362,20 @@ export default function App() {
               backgroundColor: "#CA6D00",
             },
             headerTintColor: "white",
+            headerTitleStyle: {
+              fontWeight: "600",
+            },
+            headerBackTitleVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="Feedback"
+          component={FeedbackScreen}
+          options={{
+            headerStyle: {
+              backgroundColor: "#F2F2F2",
+            },
+            headerTintColor: "black",
             headerTitleStyle: {
               fontWeight: "600",
             },
