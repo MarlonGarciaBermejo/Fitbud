@@ -67,7 +67,7 @@ const Timer = ({ duration, onTimeUp, resetTimer }) => {
   return <Text style={[styles.textStyle1, timeLeft <= 3 && styles.lastSeconds]}>{timeLeft} seconds left</Text>;
 };
 
-const UpperBodyEasyScreen = ({ navigation, setUpperBodyEasyCount }) => {
+const UpperBodyEasyScreen = ({ navigation }) => {
   const exercises = UpperBodyEasyExercises;
   const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
   const [resetTimer, setResetTimer] = useState(false);
@@ -81,7 +81,6 @@ const UpperBodyEasyScreen = ({ navigation, setUpperBodyEasyCount }) => {
   const goToNextExercise = () => {
     if (currentExerciseIndex === exercises.length - 1) {
       setShowCompletionScreen(true);
-      setUpperBodyEasyCount((prevCount) => prevCount + 1);
     } else {
       setCurrentExerciseIndex((prevIndex) => prevIndex + 1);
       setResetTimer(true);

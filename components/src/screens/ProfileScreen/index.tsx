@@ -123,7 +123,6 @@ export default function ProfilePage() {
           </View>
         </View>
       </View>
-      <UpperBodyEasyScreen setUpperBodyEasyCount={setUpperBodyEasyCount} navigation={navigation} />
     </View>
   );
 }
